@@ -33,10 +33,6 @@ public class AnimatorManager : MonoBehaviour
         animator.CrossFade(targetAnim, 0.2f);
     }
 
-    /*public void UpdateAnimatorValues(float v)
-    {
-        animator.SetFloat("Velocity",v,0.1f,Time.deltaTime);
-    }*/
 
     private void OnAnimatorMove()
     {

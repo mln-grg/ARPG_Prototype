@@ -22,6 +22,7 @@ public class InputManager : MonoBehaviour
     public float VerticalInput { get { return verticalInput; } }
     public bool b_Input;
     public bool rollFlag;
+
     private void Awake()
     {
         if (instance == null)
@@ -42,11 +43,6 @@ public class InputManager : MonoBehaviour
         playerControls.Enable();
     }
 
-    private void FixedUpdate()
-    {
-      
-    }
-
     private void OnDisable()
     {
         playerControls.Disable();
@@ -55,7 +51,9 @@ public class InputManager : MonoBehaviour
     {
         HandleMovementInput();
         HandleRollInput();
+
     }
+    
     void HandleMovementInput()
     {
         horizontalInput = MovementInput.x;
@@ -64,7 +62,6 @@ public class InputManager : MonoBehaviour
         mouseX = CameraInput.x;
         mouseY = CameraInput.y;
         animatorManager.UpdateAnimatorValues(0, moveAmount); 
-        //animatorManager.UpdateAnimatorValues(Mathf.Abs(playerMovement.Velocity));
     }
     private void HandleRollInput()
     {

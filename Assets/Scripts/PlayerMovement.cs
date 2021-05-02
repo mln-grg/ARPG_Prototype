@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
 
     private float animSpeed = 0f;
     public float Velocity { get { return animSpeed; } }
+
+    public float backStepSpeed = -2f;
+
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
@@ -32,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
         
         Vector3 movementVelocity = moveDirection;
         playerRb.velocity = movementVelocity;
-        //animSpeed = Mathf.Max(Mathf.Abs(playerRb.velocity.x), Mathf.Abs(playerRb.velocity.z));
     }
     void HandleRotation()
     {
@@ -51,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = playerRotation;
     }
     
-    public void HandleRollingAndSprinting()
+    public void HandleRollingAndBackStep()
     {
         if (animatorManager.animator.GetBool("isInteracting"))
             return;
@@ -69,15 +71,17 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                animatorManager.PlayTargetAnimation("Backstep", true);
+                InputManager.instance.rollFlag = false;
             }
         }
+        
     }
+   
 
     public void HandleAllMovement()
     {
         HandleMovement();
         HandleRotation();
-        HandleRollingAndSprinting();
+        HandleRollingAndBackStep();
     }
 }

@@ -16,15 +16,6 @@ public class PlayerManager : MonoBehaviour
     private void Update()
     {
         inputManager.HandleAllInputs();
-
-        inputManager.isInteracting = anim.GetBool("isInteracting");
-        /*if (!inputManager.isInteracting)
-        {
-            if (inputManager.rollFlag)
-            {
-                inputManager.rollFlag = false;
-            }
-        }*/
     }
 
     private void FixedUpdate()
