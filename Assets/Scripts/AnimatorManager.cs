@@ -2,48 +2,51 @@ using UnityEngine;
 
 public class AnimatorManager : MonoBehaviour
 {
-    Animator animator;
+    public Animator animator;
+    public InputManager inputManager;
+    public PlayerMovement playerMovement;
     int horizontal;
     int vertical;
+    //int velocity;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        inputManager = GetComponent<InputManager>();
+        playerMovement = GetComponent<PlayerMovement>();
         horizontal = Animator.StringToHash("Horizontal");
         vertical = Animator.StringToHash("Vertical");
+        //velocity = Animator.StringToHash("Velocity");
     }
 
-    public void UpdateAnimatorValues(float horizontalMovement , float verticalMovement)
+    public void UpdateAnimatorValues(float horizontalMovement, float verticalMovement)
     {
-      /*  float snappedHorizontal;
-        float snappedVertical;*/
+        animator.SetFloat(horizontal, horizontalMovement, 0.1f, Time.deltaTime);
+        animator.SetFloat(vertical, verticalMovement, 0.1f, Time.deltaTime);
+    }
 
-        /*#region SnappedHorizontal
-        if (horizontalMovement > 0 && horizontalMovement < 0.55f)
-            snappedHorizontal = 0.5f;
-        else if (horizontalMovement > 0.55f)
-            snappedHorizontal = 1;
-        else if (horizontalMovement < 0 && horizontalMovement > -0.55f)
-            snappedHorizontal = -0.5f;
-        else if (horizontalMovement < -0.55f)
-            snappedHorizontal = -1;
-        else
-            snappedHorizontal = 0;
-        #endregion
-        #region SnappedVertical
-        if (verticalMovement > 0 && verticalMovement < 0.55f)
-            snappedVertical = 0.5f;
-        else if (verticalMovement > 0.55f)
-            snappedVertical = 1;
-        else if (verticalMovement < 0 && verticalMovement > -0.55f)
-            snappedVertical = -0.5f;
-        else if (verticalMovement < -0.55f)
-            snappedVertical = -1;
-        else
-            snappedVertical = 0;
-        #endregion*/
+    public void PlayTargetAnimation(string targetAnim, bool isInteracting)
+    {
+        inputManager.rollFlag = false;
+        animator.applyRootMotion = isInteracting;
+        animator.SetBool("isInteracting", isInteracting);
+        animator.CrossFade(targetAnim, 0.2f);
+    }
 
-        animator.SetFloat(horizontal, horizontalMovement,0.1f,Time.deltaTime);
-        animator.SetFloat(vertical, verticalMovement,0.1f,Time.deltaTime);
+    /*public void UpdateAnimatorValues(float v)
+    {
+        animator.SetFloat("Velocity",v,0.1f,Time.deltaTime);
+    }*/
+
+    private void OnAnimatorMove()
+    {
+        if (inputManager.isInteracting == false)
+            return;
+        float delta = Time.deltaTime;
+        playerMovement.playerRb.drag = 0f;
+        Vector3 deltaPosition = animator.deltaPosition;
+        deltaPosition.y = 0;
+        Vector3 velocity = deltaPosition / delta;
+        playerMovement.playerRb.velocity = velocity;
     }
 }

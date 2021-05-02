@@ -3,16 +3,22 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     InputManager inputManager;
+    AnimatorManager animatorManager;
 
     Vector3 moveDirection;
-    Rigidbody playerRb;
+    public Rigidbody playerRb;
     Transform cameraObject;
 
+    [Header("Stats")]
     [SerializeField] float movementSpeed = 7f;
     [SerializeField] float rotationSpeed = 7f;
+
+    private float animSpeed = 0f;
+    public float Velocity { get { return animSpeed; } }
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
+        animatorManager = GetComponent<AnimatorManager>();
         playerRb = GetComponent<Rigidbody>();
         cameraObject = Camera.main.transform;
     }
@@ -22,10 +28,11 @@ public class PlayerMovement : MonoBehaviour
         moveDirection += cameraObject.right * inputManager.HorizontalInput;
         moveDirection.Normalize();
         moveDirection.y = 0;
-        moveDirection = moveDirection * movementSpeed;
-
+        moveDirection = moveDirection * movementSpeed*Time.deltaTime;
+        
         Vector3 movementVelocity = moveDirection;
         playerRb.velocity = movementVelocity;
+        //animSpeed = Mathf.Max(Mathf.Abs(playerRb.velocity.x), Mathf.Abs(playerRb.velocity.z));
     }
     void HandleRotation()
     {
@@ -43,10 +50,34 @@ public class PlayerMovement : MonoBehaviour
 
         transform.rotation = playerRotation;
     }
+    
+    public void HandleRollingAndSprinting()
+    {
+        if (animatorManager.animator.GetBool("isInteracting"))
+            return;
+        if (inputManager.rollFlag)
+        {
+            moveDirection = cameraObject.forward * inputManager.VerticalInput;
+            moveDirection += cameraObject.right * inputManager.HorizontalInput;
+
+            if(inputManager.moveAmount > 0)
+            {
+                animatorManager.PlayTargetAnimation("Rolling", true);
+                moveDirection.y = 0;
+                Quaternion rollRotation = Quaternion.LookRotation(moveDirection);
+                transform.rotation = rollRotation;
+            }
+            else
+            {
+                animatorManager.PlayTargetAnimation("Backstep", true);
+            }
+        }
+    }
 
     public void HandleAllMovement()
     {
         HandleMovement();
         HandleRotation();
+        HandleRollingAndSprinting();
     }
 }
