@@ -8,6 +8,8 @@ public class InputManager : MonoBehaviour
     
     AnimatorManager animatorManager;
     PlayerMovement playerMovement;
+    PlayerAttacker playerAttacker;
+    PlayerInventory playerInventory;
 
     Vector2 MovementInput;
     Vector2 CameraInput;
@@ -15,6 +17,10 @@ public class InputManager : MonoBehaviour
     float verticalInput;
     float mouseX;
     float mouseY;
+
+    public bool rb_Input;
+    public bool rt_Input;
+
     public float moveAmount;
     public bool isInteracting;
 
@@ -29,7 +35,8 @@ public class InputManager : MonoBehaviour
             instance = this;
         animatorManager = GetComponent<AnimatorManager>();
         playerMovement = GetComponent<PlayerMovement>();
-        
+        playerAttacker = GetComponent<PlayerAttacker>();
+        playerInventory = GetComponent<PlayerInventory>();
 
     }
     private void OnEnable()
@@ -51,6 +58,7 @@ public class InputManager : MonoBehaviour
     {
         HandleMovementInput();
         HandleRollInput();
+        HandleAttackInput();
 
     }
     
@@ -71,4 +79,20 @@ public class InputManager : MonoBehaviour
             rollFlag = true;
         }
     }
+
+    private void HandleAttackInput() 
+    {
+        playerControls.PlayerActions.RB.performed += i => rb_Input = true;
+        playerControls.PlayerActions.RT.performed += i => rt_Input = true;
+
+        if (rb_Input)
+        {
+            playerAttacker.HandleLightAttack(playerInventory.rightWeapon); 
+        }
+        if (rt_Input)
+        {
+            playerAttacker.HandleHeavyAttack(playerInventory.rightWeapon);
+        }
+    }
+
 }

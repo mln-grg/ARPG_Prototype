@@ -22,4 +22,10 @@ public class PlayerManager : MonoBehaviour
     {
         playerMovement.HandleAllMovement();
     }
+    private void LateUpdate()
+    {
+        inputManager.rb_Input = false;
+        inputManager.rt_Input = false;
+    }
+
 }

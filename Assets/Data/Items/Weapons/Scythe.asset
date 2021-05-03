@@ -15,3 +15,5 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: Scythe
   modelPrefab: {fileID: 160986, guid: 98e3f23ed65dab148b8b38714c90aef7, type: 3}
+  OH_Light_Attack_1: LightAttack1
+  OH_Heavy_Attack_1: HeavyAttack1

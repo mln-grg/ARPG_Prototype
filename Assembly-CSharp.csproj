@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\WeaponItem.cs" />
     <Compile Include="Assets\Scripts\PlayerInventory.cs" />
+    <Compile Include="Assets\Scripts\PlayerAttacker.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
