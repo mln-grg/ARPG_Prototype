@@ -184,6 +184,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "SheatheUnsheathe",
+                    "type": "Button",
+                    "id": "ef1091ab-2460-4b7c-b512-b0e4c605c78d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -250,6 +258,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "RT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6f0f2247-a6a6-4515-9ed6-efbd6e730841",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SheatheUnsheathe",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

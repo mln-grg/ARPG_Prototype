@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movementVelocity = moveDirection;
         playerRb.velocity = movementVelocity;
     }
+
     void HandleRotation()
     {
         Vector3 targetDirection = Vector3.zero;
@@ -53,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = playerRotation;
     }
     
+    
     public void HandleRollingAndBackStep()
     {
         if (animatorManager.animator.GetBool("isInteracting"))
@@ -64,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
             if(inputManager.moveAmount > 0)
             {
-                animatorManager.PlayTargetAnimation("Rolling", true);
+                animatorManager.PlayTargetAnimation("Rolling", true,false);
                 moveDirection.y = 0;
                 Quaternion rollRotation = Quaternion.LookRotation(moveDirection);
                 transform.rotation = rollRotation;

@@ -15,5 +15,13 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: Scythe
   modelPrefab: {fileID: 160986, guid: 98e3f23ed65dab148b8b38714c90aef7, type: 3}
-  OH_Light_Attack_1: LightAttack1
-  OH_Heavy_Attack_1: HeavyAttack1
+  OH_Light_Attack_1: Scythe_OneHanded_Attack1
+  OH_Light_Attack_2: Scythe_OneHanded_Attack2
+  OH_Light_Attack_3: Scythe_OneHanded_Attack3
+  OH_Heavy_Attack_1: Scythe_TwoHanded_Attack1
+  OH_Heavy_Attack_2: Scythe_TwoHanded_Attack2
+  OH_Heavy_Attack_3: Scythe_TwoHanded_Attack3
+  right_hand_idle: Scythe_RightArm_Idle
+  left_hand_idle: Scythe_LeftArm_Idle
+  sheathe: Scythe_Sheath
+  unSheathe: Scythe_Unsheath

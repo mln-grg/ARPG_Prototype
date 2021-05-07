@@ -7,7 +7,8 @@ public class PlayerInventory : MonoBehaviour
     WeaponSlotManager weaponSlotManager;
     public WeaponItem leftWeapon;
     public WeaponItem rightWeapon;
-
+    public WeaponItem Unarmed;
+    public WeaponHolderSlot slot;
     private void Awake()
     {
         weaponSlotManager = GetComponent<WeaponSlotManager>();
@@ -15,7 +16,16 @@ public class PlayerInventory : MonoBehaviour
 
     private void Start()
     {
+        weaponSlotManager.LoadWeaponOnSlot(Unarmed, false);
+        //weaponSlotManager.LoadWeaponOnSlot(leftWeapon, true);
+    }
+
+    public void Unsheathe()
+    {
         weaponSlotManager.LoadWeaponOnSlot(rightWeapon, false);
-        weaponSlotManager.LoadWeaponOnSlot(leftWeapon, true);
+    }
+    public void Sheathe()
+    {
+        slot.UnloadWeaponAndDestroy();
     }
 }

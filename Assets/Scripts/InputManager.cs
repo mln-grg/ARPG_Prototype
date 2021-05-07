@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class InputManager : MonoBehaviour
     PlayerMovement playerMovement;
     PlayerAttacker playerAttacker;
     PlayerInventory playerInventory;
+    public WeaponHolderSlot weaponHolder;
 
     Vector2 MovementInput;
     Vector2 CameraInput;
@@ -21,6 +23,7 @@ public class InputManager : MonoBehaviour
     public bool rb_Input;
     public bool rt_Input;
 
+    public bool sheatheUnsheathe_Input;
     public float moveAmount;
     public bool isInteracting;
 
@@ -28,6 +31,8 @@ public class InputManager : MonoBehaviour
     public float VerticalInput { get { return verticalInput; } }
     public bool b_Input;
     public bool rollFlag;
+
+    public bool isHoldingWeapon;
 
     private void Awake()
     {
@@ -38,6 +43,10 @@ public class InputManager : MonoBehaviour
         playerAttacker = GetComponent<PlayerAttacker>();
         playerInventory = GetComponent<PlayerInventory>();
 
+    }
+    private void Start()
+    {
+        isHoldingWeapon = false;
     }
     private void OnEnable()
     {
@@ -59,7 +68,7 @@ public class InputManager : MonoBehaviour
         HandleMovementInput();
         HandleRollInput();
         HandleAttackInput();
-
+        HandleSheatheUnsheatheInput();
     }
     
     void HandleMovementInput()
@@ -87,11 +96,46 @@ public class InputManager : MonoBehaviour
 
         if (rb_Input)
         {
-            playerAttacker.HandleLightAttack(playerInventory.rightWeapon); 
+            if (animatorManager.animator.GetBool("isInteracting"))
+                return;
+            if (isHoldingWeapon)
+                playerAttacker.HandleLightAttack(playerInventory.rightWeapon);
+            else
+                playerAttacker.HandleLightAttack(playerInventory.Unarmed);
         }
         if (rt_Input)
         {
-            playerAttacker.HandleHeavyAttack(playerInventory.rightWeapon);
+            if (animatorManager.animator.GetBool("isInteracting"))
+                return;
+            if (isHoldingWeapon)
+                playerAttacker.HandleHeavyAttack(playerInventory.rightWeapon);
+            else
+                playerAttacker.HandleHeavyAttack(playerInventory.Unarmed);
+            
+        }
+    }
+    private void HandleSheatheUnsheatheInput()
+    {
+        //playerControls.PlayerActions.SheatheUnsheathe.performed += i => sheatheUnsheathe_Input=true;
+        //Debug.Log("dd");
+        
+        if (Keyboard.current.capsLockKey.wasPressedThisFrame)
+            sheatheUnsheathe_Input = true;
+        else
+            sheatheUnsheathe_Input = false;
+            if (sheatheUnsheathe_Input)
+        {
+            
+            if (isHoldingWeapon)
+            {
+                animatorManager.animator.CrossFade(playerInventory.rightWeapon.sheathe, 0.2f);
+                isHoldingWeapon = false;
+            }
+            else
+            {
+                animatorManager.animator.CrossFade(playerInventory.rightWeapon.unSheathe, 0.2f);
+                isHoldingWeapon = true;
+            }
         }
     }
 

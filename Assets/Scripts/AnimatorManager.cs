@@ -25,11 +25,12 @@ public class AnimatorManager : MonoBehaviour
         animator.SetFloat(vertical, verticalMovement, 0.1f, Time.deltaTime);
     }
 
-    public void PlayTargetAnimation(string targetAnim, bool isInteracting)
+    public void PlayTargetAnimation(string targetAnim, bool isInteracting,bool isFighting)
     {
         inputManager.rollFlag = false;
         animator.applyRootMotion = isInteracting;
         animator.SetBool("isInteracting", isInteracting);
+        animator.SetBool("isFighting", isFighting);
         animator.CrossFade(targetAnim, 0.2f);
     }
 
