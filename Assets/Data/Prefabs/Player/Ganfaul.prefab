@@ -30,6 +30,66 @@ Transform:
   m_Father: {fileID: 5458569612248123714}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 19.983, y: -10.523, z: -0.388}
+--- !u!1 &266444033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 266444034}
+  m_Layer: 0
+  m_Name: Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &266444034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266444033}
+  m_LocalRotation: {x: 0.15045293, y: -0.6779444, z: 0.71185654, w: -0.10495488}
+  m_LocalPosition: {x: -0.33, y: 0.25, z: -0.21}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3216716223184219406}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 69.006, y: 84.312, z: 260.562}
+--- !u!1 &1837981312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1837981313}
+  m_Layer: 0
+  m_Name: RightHandWeaponPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1837981313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837981312}
+  m_LocalRotation: {x: -0.17886202, y: 0.020909155, z: -0.009967076, w: 0.98360145}
+  m_LocalPosition: {x: -0.339, y: 0.568, z: 1.66}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6650008178642029272}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: -20.575, y: 2.737, z: -1.658}
 --- !u!1 &259757750842248773
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,6 +335,7 @@ Transform:
   - {fileID: 495680474125254059}
   - {fileID: 1240482640706647901}
   - {fileID: 7912564752717600217}
+  - {fileID: 266444034}
   m_Father: {fileID: 1256485283123794420}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -649,6 +710,7 @@ Transform:
   - {fileID: 9043109966261115351}
   - {fileID: 687481907398938729}
   - {fileID: 3385147557143059703}
+  - {fileID: 1837981313}
   m_Father: {fileID: 150967991523691310}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -664,10 +726,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55abcaabc18fed440bd086b648917004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentOverride: {fileID: 6650008178642029272}
+  parentOverride: {fileID: 1837981313}
+  parent: {fileID: 266444034}
   isLeftHandSlot: 0
   isRightHandSlot: 1
   currentWeaponModel: {fileID: 0}
+  Scythe: {fileID: 4571202125593427684, guid: 98e3f23ed65dab148b8b38714c90aef7, type: 3}
+  slot: {fileID: 4243931132353301472}
+  unarmed: {fileID: 11400000, guid: 2e35d3e21dee03d448c9a48668e08ba1, type: 2}
+  offset: {x: 0.001, y: 0.114, z: 0.146}
 --- !u!1 &2950041824060556511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,12 +1100,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea01dac71fa8d440b113024bf8010d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponHolder: {fileID: 1469930596}
   rb_Input: 0
   rt_Input: 0
+  sheatheUnsheathe_Input: 0
   moveAmount: 0
   isInteracting: 0
   b_Input: 0
   rollFlag: 0
+  isHoldingWeapon: 0
 --- !u!114 &4243931133227285740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1080,6 +1150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftWeapon: {fileID: 11400000, guid: f3808a6dc0b87ff4192ad7c3152d48ff, type: 2}
   rightWeapon: {fileID: 11400000, guid: f3808a6dc0b87ff4192ad7c3152d48ff, type: 2}
+  Unarmed: {fileID: 11400000, guid: 2e35d3e21dee03d448c9a48668e08ba1, type: 2}
+  slot: {fileID: 1469930596}
 --- !u!114 &4243931132353301472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1335,15 +1407,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4379921367294970336}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55abcaabc18fed440bd086b648917004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   parentOverride: {fileID: 197405832}
+  parent: {fileID: 0}
   isLeftHandSlot: 1
   isRightHandSlot: 0
   currentWeaponModel: {fileID: 0}
+  Scythe: {fileID: 0}
+  slot: {fileID: 0}
+  unarmed: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &4464249753989603528
 GameObject:
   m_ObjectHideFlags: 0
