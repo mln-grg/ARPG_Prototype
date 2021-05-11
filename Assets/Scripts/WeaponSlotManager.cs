@@ -43,4 +43,13 @@ public class WeaponSlotManager : MonoBehaviour
 
         }
     }
+
+    public void EnablewCollider()
+    {
+        rightHandSlot.EnableCurrentWeaponCollider();
+    }
+    public void DisablewCollider()
+    {
+        rightHandSlot.DisableCurrentWeaponCollider();
+    }
 }

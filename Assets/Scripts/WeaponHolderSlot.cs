@@ -69,4 +69,15 @@ public class WeaponHolderSlot : MonoBehaviour
         } 
         currentWeaponModel = model; 
     }
+
+    public void DisableCurrentWeaponCollider()
+    {
+        WeaponCollider wCollider = currentWeaponModel.GetComponent<WeaponCollider>();
+        wCollider.DisableCollider();
+    }
+    public void EnableCurrentWeaponCollider()
+    {
+        WeaponCollider wCollider = currentWeaponModel.GetComponent<WeaponCollider>();
+        wCollider.EnableCollider();
+    }
 }

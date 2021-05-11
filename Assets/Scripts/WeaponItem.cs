@@ -22,6 +22,9 @@ public class WeaponItem : Item
     [Header("Sheathe Unsheathe Animation")]
     public string sheathe;
     public string unSheathe;
-    
-    
+
+    [Header("WeaponStats")]
+    public float damage;
+
+
 }

@@ -25,3 +25,4 @@ MonoBehaviour:
   left_hand_idle: Scythe_LeftArm_Idle
   sheathe: Scythe_Sheath
   unSheathe: Scythe_Unsheath
+  damage: 20
