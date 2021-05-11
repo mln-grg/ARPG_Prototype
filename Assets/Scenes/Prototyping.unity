@@ -3936,12 +3936,36 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804348543}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8e9d17796fd47c46976ba2f17284603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Effects: []
+  Effects:
+  - Effect: {fileID: 1935082409722074, guid: d2910e4d9472c8843a387bdd9a51d879, type: 3}
+    StartPositionRotation: {fileID: 543450653046065283}
+    DestroyAfter: 10
+    UseLocalPosition: 0
+  - Effect: {fileID: 1935082409722074, guid: 73c5905a45ba2d841a54b3c5468d23a6, type: 3}
+    StartPositionRotation: {fileID: 543450653046065283}
+    DestroyAfter: 10
+    UseLocalPosition: 0
+  - Effect: {fileID: 1543153927702632, guid: 638bf80b37fd48a458d61ac9d454265e, type: 3}
+    StartPositionRotation: {fileID: 543450653046065283}
+    DestroyAfter: 10
+    UseLocalPosition: 0
+--- !u!114 &1804348555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804348543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ea476a0bcc7e845b999e3672566df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1841365878
 GameObject:
   m_ObjectHideFlags: 0
