@@ -93,6 +93,7 @@
     <Compile Include="Assets\KriptoFX\VolumetricBloodFX\Scripts\BFX_BloodSettings.cs" />
     <Compile Include="Assets\KriptoFX\VolumetricBloodFX\Scripts\BFX_MouseOrbit.cs" />
     <Compile Include="Assets\KriptoFX\VolumetricBloodFX\Scripts\BFX_RenderDepth.cs" />
+    <Compile Include="Assets\Scripts\MiscQuickFixes\DestroyEffect.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Allegorithmic\Plugins\Substance.Engine.dll" />

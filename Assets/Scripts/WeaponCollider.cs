@@ -14,7 +14,6 @@ public class WeaponCollider : MonoBehaviour
     private void Start()
     {
         weaponCollider.isTrigger = true;
-        weaponCollider.enabled = false;
     }
 
     public void EnableCollider()
@@ -34,7 +33,7 @@ public class WeaponCollider : MonoBehaviour
             Debug.Log("hitting");
             EnemyDamage enemy = other.gameObject.GetComponent<EnemyDamage>();
             enemy.TakeDamage(weapon.damage);
-            DisableCollider();
+            //DisableCollider();
         }
     }
 }
