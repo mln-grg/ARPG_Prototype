@@ -29,7 +29,6 @@ public class WeaponCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hi");
         if(other.tag == "Enemy")
         {
             Debug.Log("hitting");

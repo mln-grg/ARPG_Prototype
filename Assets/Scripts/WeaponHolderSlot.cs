@@ -55,14 +55,17 @@ public class WeaponHolderSlot : MonoBehaviour
         {
             if (parentOverride != null)
             {
-                parentOverride.localPosition += offset;
+
+                //parentOverride.localPosition += offset;
                 model.transform.parent = parentOverride;
                 //model.transform.localPosition = new Vector3(0.820865f, -0.41220f, -0.959670f);
-                //model.transform.localRotation = new Quaternion(-158.692f,-10.91f,-4.164978f);
+                //model.transform.localRotation = new Quaternion(-158.692f, -10.91f, -4.164978f);
             }
             else
             {
+
                 model.transform.parent = transform;
+
             }
             //model.transform.localPosition = Vector3.zero;
             //model.transform.localRotation = Quaternion.identity;

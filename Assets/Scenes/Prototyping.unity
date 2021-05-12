@@ -892,7 +892,7 @@ Transform:
   m_GameObject: {fileID: 388690896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.248, y: 0, z: -5.381}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -4466,9 +4466,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 266444034, guid: e0c924fb95185d4419fe6573328762a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.309
+      objectReference: {fileID: 0}
+    - target: {fileID: 266444034, guid: e0c924fb95185d4419fe6573328762a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.278
+      objectReference: {fileID: 0}
+    - target: {fileID: 266444034, guid: e0c924fb95185d4419fe6573328762a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.164
+      objectReference: {fileID: 0}
     - target: {fileID: 3901262078929820132, guid: e0c924fb95185d4419fe6573328762a5, type: 3}
       propertyPath: m_Name
       value: Baenji
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243931133227285746, guid: e0c924fb95185d4419fe6573328762a5, type: 3}
+      propertyPath: movementSpeed
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4426969836582601566, guid: e0c924fb95185d4419fe6573328762a5, type: 3}
       propertyPath: m_RootOrder

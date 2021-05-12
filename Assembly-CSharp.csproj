@@ -56,6 +56,7 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\MiscQuickFixes\EnemyDamage.cs" />
     <Compile Include="Assets\XWeaponTrail\Scripts\XWeaponTrail.cs" />
     <Compile Include="Assets\Scripts\WeaponSlotManager.cs" />
     <Compile Include="Assets\Scripts\MiscQuickFixes\WeaponTrailInstance.cs" />
@@ -78,12 +79,11 @@
     <Compile Include="Assets\Input\PlayerControls.cs" />
     <Compile Include="Assets\OrdosFX\Magic Slashes FX\Scripts\Teleport.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
+    <Compile Include="Assets\Scripts\WeaponCollider.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\WeaponTrails.cs" />
     <Compile Include="Assets\Scripts\WeaponItem.cs" />
     <Compile Include="Assets\Scripts\ResetIsInteracting.cs" />
-    <Compile Include="Assets\Scripts\WeaponCollider.cs" />
-    <Compile Include="Assets\Scripts\MiscQuickFixes\EnemyDamage.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Allegorithmic\Plugins\Substance.Engine.dll" />
