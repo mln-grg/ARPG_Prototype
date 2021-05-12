@@ -10,21 +10,12 @@ public class EnemyDamage : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+
     }
     public void TakeDamage(float damage)
     {
-        Debug.Log("ouch");
-        if(health -damage == 0)
-        {
-            Die();
-            return;
-        }
         health -= damage;
-        animator.CrossFade("GetHit", 0.2f);
-    }
+        animator.CrossFade("GetHit", 0f);
 
-    private void Die()
-    {
-        Debug.Log("ded");
     }
 }

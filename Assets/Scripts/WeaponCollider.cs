@@ -24,12 +24,12 @@ public class WeaponCollider : MonoBehaviour
 
     public void DisableCollider()
     {
-        weaponCollider.enabled = false;
+        weaponCollider.enabled = false;       
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Enemy")
+        if (other.tag == "Enemy")
         {
             Debug.Log("hitting");
             EnemyDamage enemy = other.gameObject.GetComponent<EnemyDamage>();
